@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: radial-gradient(circle, #ffe6e6, #ffcccc);
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            animation: fadeIn 1.5s;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page:nth-child(1) {
+            background: linear-gradient(to right, #fff5f5, #ffe0e0);
+        }
+
+        .page:nth-child(2) {
+            background: linear-gradient(to bottom, #ffe0e0, #ffcccc);
+        }
+
+        .page:nth-child(3) {
+            background: linear-gradient(to right, #ffcccc, #ffb3b3);
+        }
+
+        .page:nth-child(4) {
+            background: linear-gradient(to bottom, #ffb3b3, #ff9999);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #cc0000;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px #660000;
+            animation: glow 2s infinite alternate;
+        }
+
+        p {
+            font-size: 1.4rem;
+            margin: 15px 0;
+            line-height: 2;
+            color: #990000;
+            animation: slideIn 1.5s;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background: #cc0000;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 2px 2px 10px #660000;
+            animation: bounce 1s infinite alternate;
+        }
+
+        button:hover {
+            background: #990000;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 5px #660000;
+            }
+            to {
+                text-shadow: 4px 4px 15px #ff0000;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" src="perfect.mp3" loop></audio>
+
+    <div id="page1" class="page active">
+        <h1>Welcome, Amruu!</h1>
+        <p>You are the light in my darkest moments,</p>
+        <p>the melody in my heart, and the reason I smile.</p>
+        <p>Every second with you feels magical.</p>
+        <button onclick="playMusic(); showPage(2)">Next</button>
+    </div>
+
+    <div id="page2" class="page">
+        <h1>Romantic Quotes</h1>
+        <p>“You are the love of my life,</p>
+        <p>the dream I never want to wake up from.”</p>
+        <p>“Your touch is my heaven, and your voice my paradise.”</p>
+        <p>“I didn’t believe in love at first sight, but that was before I met you.”</p>
+        <p>“Every time I see you, I fall in love all over again.”</p>
+        <p>“You’re not just my love; you’re my best friend and my soul mate.”</p>
+        <button onclick="showPage(3)">Next</button>
+    </div>
+
+    <div id="page3" class="page">
+        <h1>I Want to Say Something to You</h1>
+        <p>My love, I am truly sorry for all the times I hurt you.</p>
+        <p>Sometimes I let my emotions overpower my love for you.</p>
+        <p>You deserve a partner who treasures you unconditionally.</p>
+        <p>I promise to always fight for us, to heal the wounds I caused.</p>
+        <p>From this moment forward, I will strive to be better for you.</p>
+        <p>I want to see you smile every day, and I will do everything to make it happen.</p>
+        <p>Thank you for your patience and love despite my flaws.</p>
+        <p>“Let’s make every day a honeymoon.”</p>
+        <button onclick="showPage(4)">Next</button>
+    </div>
+
+    <div id="page4" class="page">
+        <h1>Will You Marry Me?</h1>
+        <p>You are my today and all of my tomorrows.</p>
+        <p>Will you take my hand and make this journey eternal?</p>
+        <button onclick="handleResponse('yes')">Yes</button>
+        <button onclick="handleResponse('no')">No</button>
+    </div>
+
+    <script>
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+        }
+
+        function handleResponse(answer) {
+            if (answer === 'no') {
+                alert('There is no other option for you! Please click Yes.');
+            } else {
+                alert('You said Yes! I love you!');
+            }
+        }
+
+        function playMusic() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
